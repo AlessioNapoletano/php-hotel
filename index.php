@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,11 @@
     <!--CSS-->
     <link rel="stylesheet" href="./styles/style.css">
 
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 </head>
+
 <body>
     <?php
 
@@ -53,7 +58,7 @@
 
     ];
 
-?>
+    ?>
 
     <header>
         <h1 class="text-center">
@@ -75,7 +80,7 @@
         -->
 
     <main>
-        
+
         <section class="form">
             <h2>
                 Inserisci i dati:
@@ -89,26 +94,51 @@
                 <button type="submit">Invia</button>
             </form>
         </section>
-            
-        
+
+
         <section>
             <h2 class="text-center">
-                Hotel disponibili: 
+                Hotel disponibili:
             </h2>
 
-            <?php 
-                foreach ($hotels as $hotel) {
-                    echo "<article>";
-                    echo "<p> nome: " . $hotel['name'] . "</p>";
-                    echo "<p> description: " . $hotel['description'] . "</p>";
-                    echo "<p> parking: " . $hotel['parking'] . "</p>";
-                    echo "<p> vote: " . $hotel['vote'] . "</p>";
-                    echo "<p> distance_to_center: " . $hotel['distance_to_center'] . "</p>";
-                    echo "</article>";
-                    echo "<hr>";
-                }
-            ?>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Descrizione</th>
+                        <th scope="col">Parcheggio</th>
+                        <th scope="col">Voto</th>
+                        <th scope="col">Distanza dal centro</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <!-- 
+            $hotels = 
+            [
+            'name' => 'Hotel Belvedere',
+            'description' => 'Hotel Belvedere Descrizione',
+            'parking' => true,
+            'vote' => 4,
+            'distance_to_center' => 10.4
+        ]
+        -->
+                    <?php 
+                        foreach($hotels as $hotel) {
+                            echo "<tr>";
+                            echo "<td>" . $hotel['name'] . "</td>";
+                            echo "<td>" . $hotel['description'] . "</td>";
+                            echo "<td>" . (($hotel['parking']) ? 'si' : 'no') . "</td>";
+                            echo "<td>" . $hotel['vote'] . "</td>";
+                            echo "<td>" . $hotel['distance_to_center'] . " km </td>";
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+
         </section>
     </main>
 </body>
+
 </html>
