@@ -62,8 +62,8 @@
 
         <hr>
     </header>
-    <main>
-        <!-- 
+
+    <!-- 
             $hotels = 
             [
             'name' => 'Hotel Belvedere',
@@ -73,9 +73,24 @@
             'distance_to_center' => 10.4
         ]
         -->
-              
-        <!-- Stampare tutti i nostri hotel con tutti i dati disponibili. -->
 
+    <main>
+        
+        <section class="form">
+            <h2>
+                Inserisci i dati:
+            </h2>
+
+            <!-- 1 - Aggiungere un form ad inizio pagina che tramite una richiesta GET permetta di filtrare gli hotel che hanno un parcheggio. -->
+
+            <form action="index.php" method="GET">
+                <label for="parking">Parcheggio: </label>
+                <input id="parking" type="text" name="parking">
+                <button type="submit">Invia</button>
+            </form>
+        </section>
+            
+        
         <section>
             <h2 class="text-center">
                 Hotel disponibili: 
@@ -84,12 +99,14 @@
             <?php 
                 foreach ($hotels as $hotel) {
                     echo "<article>";
-                    foreach ($hotel as $key => $singleHotel) {
-                        echo "<p> " . "<strong>". $key . "</strong>" . ": " . $singleHotel . "</p>";
-                    }
+                    echo "<p> nome: " . $hotel['name'] . "</p>";
+                    echo "<p> description: " . $hotel['description'] . "</p>";
+                    echo "<p> parking: " . $hotel['parking'] . "</p>";
+                    echo "<p> vote: " . $hotel['vote'] . "</p>";
+                    echo "<p> distance_to_center: " . $hotel['distance_to_center'] . "</p>";
                     echo "</article>";
                     echo "<hr>";
-                  }
+                }
             ?>
         </section>
     </main>
