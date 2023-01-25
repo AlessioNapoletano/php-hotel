@@ -85,7 +85,7 @@
                 foreach ($hotels as $hotel) {
                     echo "<article>";
                     foreach ($hotel as $key => $singleHotel) {
-                        echo "<p> " . $key . ": " . $singleHotel . "</p>";
+                        echo "<p> " . "<strong>". $key . "</strong>" . ": " . $singleHotel . "</p>";
                     }
                     echo "</article>";
                     echo "<hr>";
