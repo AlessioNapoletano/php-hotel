@@ -56,8 +56,8 @@
 ?>
 
     <header>
-        <h1>
-            Hotel
+        <h1 class="text-center">
+            Hotels
         </h1>
 
         <hr>
@@ -76,17 +76,22 @@
               
         <!-- Stampare tutti i nostri hotel con tutti i dati disponibili. -->
 
-        <article>
-            <h2>
+        <section>
+            <h2 class="text-center">
                 Hotel disponibili: 
             </h2>
 
             <?php 
-                foreach($hotels as $hotel) {
-                    echo $hotel;
-                }
+                foreach ($hotels as $hotel) {
+                    echo "<article>";
+                    foreach ($hotel as $key => $singleHotel) {
+                        echo "<p> " . $key . ": " . $singleHotel . "</p>";
+                    }
+                    echo "</article>";
+                    echo "<hr>";
+                  }
             ?>
-        </article>
+        </section>
     </main>
 </body>
 </html>

@@ -4,3 +4,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.hotel {
+    border: 1px solid magenta;
+}
+
+.text-center {
+    text-align: center;
+}
